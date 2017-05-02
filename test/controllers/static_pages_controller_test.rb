@@ -5,6 +5,12 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest\
   def setup
     @base_setup = "Ruby on Rails Tutorial Sample App"
   end
+
+  test "Root should be home" do
+    get root_url
+    assert_response :success
+    assert_select "title", "Home | #{@base_setup}"
+  end
   test "should get home" do
     get static_pages_home_url
     assert_response :success
