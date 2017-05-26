@@ -42,6 +42,14 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  # Cofiguration to allow for email previews
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :test
+  host = 'localhost:4000' 
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+
+
+
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
